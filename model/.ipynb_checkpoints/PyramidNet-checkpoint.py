@@ -113,7 +113,7 @@ class PyramidNet(nn.Module):
     def __init__(self, dataset, depth, alpha, num_classes, bottleneck=False):
         super(PyramidNet, self).__init__()   	
         self.dataset = dataset
-        if self.dataset.startswith('cifar'):
+        if self.dataset.startswith('Cifar') or self.dataset.startswith('food'):
             self.inplanes = 16
             if bottleneck == True:
                 n = int((depth - 2) / 9)
@@ -138,7 +138,7 @@ class PyramidNet(nn.Module):
             self.relu_final = nn.ReLU(inplace=True)
             self.avgpool = nn.AvgPool2d(8)
             self.fc = nn.Linear(self.final_featuremap_dim, num_classes)
-            
+        
         elif self.dataset.startswith('fashion'):
             self.inplanes = 16
             if bottleneck == True:
@@ -237,6 +237,20 @@ class PyramidNet(nn.Module):
             x = self.bn_final(x)
             x = self.relu_final(x)
             x = self.avgpool(x)
+            x = x.view(x.size(0), -1)
+            x = self.fc(x)
+            
+        elif self.dataset == 'fashionmnist':
+            x = self.conv1(x)
+            x = self.bn1(x)
+            
+            x = self.layer1(x)
+            x = self.layer2(x)
+            x = self.layer3(x)
+
+            x = self.bn_final(x)
+            x = self.relu_final(x)
+            x = nn.AdaptiveAvgPool2d((1, 1))(x)
             x = x.view(x.size(0), -1)
             x = self.fc(x)
 

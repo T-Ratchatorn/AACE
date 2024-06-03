@@ -113,7 +113,7 @@ class PyramidNet(nn.Module):
     def __init__(self, dataset, depth, alpha, num_classes, bottleneck=False):
         super(PyramidNet, self).__init__()   	
         self.dataset = dataset
-        if self.dataset.startswith('cifar'):
+        if self.dataset.startswith('cifar') or self.dataset.startswith('food'):
             self.inplanes = 16
             if bottleneck == True:
                 n = int((depth - 2) / 9)

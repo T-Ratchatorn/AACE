@@ -6,7 +6,7 @@ from torch.utils.data import DataLoader
 from utility.cutout import Cutout
 
 
-class Cifar10:
+class cifar10:
     def __init__(self, batch_size, threads):
         mean, std = self._get_statistics()
 
