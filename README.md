@@ -7,8 +7,8 @@ To train a model using the SAM with AACE training script, you need to specify th
 You can use the following command:
 
 ```bash
-python train.py --model <MODEL_NAME> --dataset <DATASET_NAME> --rho <RHO>```
-
+python train.py --model <MODEL_NAME> --dataset <DATASET_NAME> --rho <RHO>
+```
 
 MODEL_NAME: "WideResNet", "PyramidNet"
 DATASET_NAME: "cifar100", "cifar10", "fashionmnist", "food101"
