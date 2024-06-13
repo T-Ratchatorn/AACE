@@ -21,7 +21,7 @@ class SquarePad:
         return image
 
 
-class Food101:
+class food101:
     def __init__(self, batch_size, threads):
 
 #         mean, std = self._get_statistics() #use for normailize

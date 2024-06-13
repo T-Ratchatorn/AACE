@@ -8,58 +8,60 @@ from model.PyramidNet import PyramidNet
 
 from model.smooth_cross_entropy import smooth_crossentropy
 
-from data_cifar100.cifar import Cifar100
-from data_cifar10.cifar import Cifar10
+from data_cifar100.cifar import cifar100
+from data_cifar10.cifar import cifar10
 from data_fashionmnist.fashionmnist import fashionmnist
-from data_food101.food101 import Food101
+from data_food101.food101 import food101
 
 from utility.log import Log
 from utility.initialize import initialize
 from utility.step_lr import StepLR
 from utility.bypass_bn import enable_running_stats, disable_running_stats
+
+from sam import SAM
 from adversarial_cross_entropy import AdaptiveAdversrialCrossEntropy
 
 
 def get_experiment_parameters(experiment, base_optimizer, data, device, rho):
     if experiment == "WideResNet":
-        if data == "cifar100"
-            model = WideResNet(dataset=data, 28, 10, 0, in_channels=3, labels=100).to(device)
+        if data == "cifar100":
+            model = WideResNet(data, 28, 10, 0, in_channels=3, labels=100).to(device)
             optimizer = SAM(model.parameters(), base_optimizer, rho=rho, lr=0.1, momentum=0.9, weight_decay=0.0005)
             scheduler = StepLR(optimizer, 0.1, 200)
             batch_size, epochs = 256, 200
         elif data == "cifar10":
-            model = WideResNet(dataset=data, 28, 10, 0, in_channels=3, labels=10).to(device)
+            model = WideResNet(data, 28, 10, 0, in_channels=3, labels=10).to(device)
             optimizer = SAM(model.parameters(), base_optimizer, rho=rho, lr=0.1, momentum=0.9, weight_decay=0.0005)
             scheduler = StepLR(optimizer, 0.1, 200)
             batch_size, epochs = 256, 200
         elif data == "fashionmnist":
-            model = WideResNet(dataset=data, 28, 10, 0, in_channels=1, labels=10).to(device)
+            model = WideResNet(data, 28, 10, 0, in_channels=1, labels=10).to(device)
             optimizer = SAM(model.parameters(), base_optimizer, rho=rho, lr=0.1, momentum=0.9, weight_decay=0.0005)
             scheduler = StepLR(optimizer, 0.1, 200)
             batch_size, epochs = 256, 200
         elif data == "food101":
-            model = WideResNet(dataset=data, 28, 10, 0, in_channels=3, labels=101).to(device)
+            model = WideResNet(data, 28, 10, 0, in_channels=3, labels=101).to(device)
             optimizer = SAM(model.parameters(), base_optimizer, rho=rho, lr=0.1, momentum=0.9, weight_decay=0.0005)
             scheduler = StepLR(optimizer, 0.1, 200)
             batch_size, epochs = 256, 200
     elif experiment == "PyramidNet":
-        if data == "cifar100"
-            model = PyramidNet(dataset=data, depth=272, alpha=200, num_classes=100).to(device)
+        if data == "cifar100":
+            model = PyramidNet(data, depth=272, alpha=200, num_classes=100).to(device)
             optimizer = SAM(model.parameters(), base_optimizer, rho=rho, lr=0.1, momentum=0.9, weight_decay=0.0005)
             scheduler = StepLR(optimizer, 0.1, 200)
             batch_size, epochs = 64, 200
         elif data == "cifar10":
-            model = PyramidNet(dataset=data, depth=272, alpha=200, num_classes=10).to(device)
+            model = PyramidNet(data, depth=272, alpha=200, num_classes=10).to(device)
             optimizer = SAM(model.parameters(), base_optimizer, rho=rho, lr=0.1, momentum=0.9, weight_decay=0.0005)
             scheduler = StepLR(optimizer, 0.1, 200)
             batch_size, epochs = 64, 200
         elif data == "fashionmnist":
-            model = PyramidNet(dataset=data, depth=272, alpha=200, num_classes=10).to(device)
+            model = PyramidNet(data, depth=272, alpha=200, num_classes=10).to(device)
             optimizer = SAM(model.parameters(), base_optimizer, rho=rho, lr=0.1, momentum=0.9, weight_decay=0.0005)
             scheduler = StepLR(optimizer, 0.1, 200)
             batch_size, epochs = 64, 200
         elif data == "food101":
-            model = PyramidNet(dataset=data, depth=272, alpha=200, num_classes=101).to(device)
+            model = PyramidNet(data, depth=272, alpha=200, num_classes=101).to(device)
             optimizer = SAM(model.parameters(), base_optimizer, rho=rho, lr=0.1, momentum=0.9, weight_decay=0.0005)
             scheduler = StepLR(optimizer, 0.1, 200)
             batch_size, epochs = 64, 200
@@ -68,13 +70,13 @@ def get_experiment_parameters(experiment, base_optimizer, data, device, rho):
 
 def get_dataset(data, batch_size, threads):
     if data == "cifar100":
-        return Cifar100(batch_size, threads)
+        return cifar100(batch_size, threads)
     elif data == "cifar10":
-        return Cifar10(batch_size, threads)
+        return cifar10(batch_size, threads)
     elif data == "fashionmnist":
         return fashionmnist(batch_size, threads)
     elif data == "food101":
-        return Food101(batch_size, threads)
+        return food101(batch_size, threads)
 
 
 def train(model_name, dataset_name, rho, gpu, threads, use_grad_norm, result_dir):
