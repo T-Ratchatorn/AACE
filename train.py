@@ -182,7 +182,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", type=str, help="Model Architecture")
     parser.add_argument("--dataset", type=str, help="Dataset for training")
-    parser.add_argument("--rho", type=int, default=2.0, help="Rho parameter for SAM.")
+    parser.add_argument("--rho", type=float, default=2.0, help="Rho parameter for SAM.")
     parser.add_argument("--gpu", type=str, default="cuda:3", help="GPU device to use.")
     parser.add_argument("--threads", type=int, default=36, help="Number of threads for data loading.")
     parser.add_argument("--use_grad_norm", type=bool, default=False, help="Use gradient norm.")
