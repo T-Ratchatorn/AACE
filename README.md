@@ -17,7 +17,7 @@ MODEL_NAME: "WideResNet", "PyramidNet"
 DATASET_NAME: "cifar100", "cifar10", "fashionmnist", "food101"  
 RHO: rho value (default = 0.2)
 
-See **train.py** for more parameters detail
+For additional details on all parameters, please see [train.py](train.py)
 
 ## Inferencing Using Pre-Treained Weight
 To obtain the results as shown in Table.2 and Table.3 in the paper, run the following command for inferencing using a pre-trained model trained by SAM with AACE.
@@ -30,7 +30,7 @@ python test.py --model <MODEL_NAME> --dataset <DATASET_NAME>
 MODEL_NAME: "WideResNet", "PyramidNet"  
 DATASET_NAME: "cifar100", "cifar10", "fashionmnist", "food101"
 
-See **test.py** for more parameters detail
+For additional details on all parameters, please see [test.py](test.py)
 
 ## Citation
 Tanapat Ratchatorn and Masayuki Tanaka, **“Adaptive Adversarial Cross-Entropy Loss for Sharpness-Aware Minimization”**, IEEE International Conference on Image Processing (ICIP), October, 2024.
