@@ -20,13 +20,13 @@ def get_model(model_name, data, device):
             model_url = "https://drive.google.com/uc?id=1bhTIJF6bIsNukSry_bSlF0Co9K_MgoWH"
         elif data == "cifar10":
             model = WideResNet(data, 28, 10, 0, in_channels=3, labels=10).to(device)
-            model_url = "https://drive.google.com/uc?id="
+            model_url = "https://drive.google.com/uc?id=1tXsJH9GeP1zxqoeHa7eGDu0PcsxGzZbL"
         elif data == "fashionmnist":
             model = WideResNet(data, 28, 10, 0, in_channels=1, labels=10).to(device)
-            model_url = "https://drive.google.com/uc?id="
+            model_url = "https://drive.google.com/uc?id=1Fs9qP-aZAs--qXDXocKSrav8ogAqVAcI"
         elif data == "food101":
             model = WideResNet(data, 28, 10, 0, in_channels=3, labels=101).to(device)
-            model_url = "https://drive.google.com/uc?id="
+            model_url = "https://drive.google.com/uc?id=1Ojco4ScCCLEOob-_mN8FcGMQlt-Si13l"
     elif model_name == "PyramidNet":
         batch_size = 64      
         if data == "cifar100":
@@ -34,13 +34,13 @@ def get_model(model_name, data, device):
             model_url = "https://drive.google.com/uc?id=1SbLSAAMCobkW2ZJLNykqrQmxJuzmFMEU"
         elif data == "cifar10":
             model = PyramidNet(data, depth=272, alpha=200, num_classes=10).to(device)
-            model_url = "https://drive.google.com/uc?id="
+            model_url = "https://drive.google.com/uc?id=1hn1VAkmFUJbDpLYrSb0m-FRUMtSyfAtX"
         elif data == "fashionmnist":
             model = PyramidNet(data, depth=272, alpha=200, num_classes=10).to(device)
-            model_url = "https://drive.google.com/uc?id="
+            model_url = "https://drive.google.com/uc?id=1tZkHrnOPlOL5AEwtc3UG5DtWGydkLdgB"
         elif data == "food101":
             model = PyramidNet(data, depth=272, alpha=200, num_classes=101).to(device)
-            model_url = "https://drive.google.com/uc?id="
+            model_url = "https://drive.google.com/uc?id=1DISY-pNU-HYVAW7S8M61-bJj9v79jBM7"
             
     checkpoint_path = f'./pretrained_weight/AACE_{model_name}_{data}.pth'
     # Check if checkpoint exists

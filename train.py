@@ -184,7 +184,7 @@ if __name__ == "__main__":
     parser.add_argument("--dataset", type=str, help="Dataset for training")
     parser.add_argument("--rho", type=float, default=0.2, help="Rho parameter for SAM.")
     parser.add_argument("--gpu", type=str, default="cuda:3", help="GPU device to use.")
-    parser.add_argument("--threads", type=int, default=36, help="Number of threads for data loading.")
+    parser.add_argument("--threads", type=int, default=16, help="Number of threads for data loading.")
     parser.add_argument("--use_grad_norm", type=bool, default=False, help="Use gradient norm.")
     parser.add_argument("--result_dir", type=str, default="./results", help="Directory to save results.")
     
