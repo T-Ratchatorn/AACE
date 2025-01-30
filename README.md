@@ -3,9 +3,9 @@
 This repository contains reproduction code for the research paper titled **"ADAPTIVE ADVERSARIAL CROSS-ENTROPY LOSS FOR SHARPNESS-AWARE MINIMIZATION"**.  
 This technique helps improve model generalization and performance in image classification tasks.
 
-The paper has been accepted and presented at ICIP2024
-Project Page: http://www.vip.sc.e.titech.ac.jp/proj/AACE/AACE.html
-Paper Link: https://ieeexplore.ieee.org/document/10647582
+The paper has been accepted and presented at ICIP2024  
+Project Page: http://www.vip.sc.e.titech.ac.jp/proj/AACE/AACE.html  
+Paper Link: https://ieeexplore.ieee.org/document/10647582  
 arXiv: https://arxiv.org/abs/2406.14329
 
 ## Training from Scratch
