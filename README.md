@@ -35,3 +35,14 @@ For additional details on all parameters, please see [test.py](test.py)
 
 ## Citation
 Tanapat Ratchatorn and Masayuki Tanaka, **“Adaptive Adversarial Cross-Entropy Loss for Sharpness-Aware Minimization”**, IEEE International Conference on Image Processing (ICIP), October, 2024.
+
+```
+@INPROCEEDINGS{10647582,
+  author={Ratchatorn, Tanapat and Tanaka, Masayuki},
+  booktitle={2024 IEEE International Conference on Image Processing (ICIP)}, 
+  title={Adaptive Adversarial Cross-Entropy Loss for Sharpness-Aware Minimization}, 
+  year={2024},
+  pages={479-485},
+  doi={10.1109/ICIP51287.2024.10647582}}
+```
+
